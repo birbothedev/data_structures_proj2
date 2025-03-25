@@ -46,4 +46,10 @@ public class Node {
     public boolean isLastElement(){
         return this.nextNode == null;
     }
+
+//    public String toString(){
+//        if(this.exponent == 0){
+//            return
+//        }
+//    }
 }
