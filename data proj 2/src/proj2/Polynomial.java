@@ -7,17 +7,16 @@ public class Polynomial {
     // constructor
     public Polynomial(){
         firstNode = null;
-
     }
 
     // copy constructor
     Polynomial(Polynomial otherPoly){
         this.firstNode = null;
-        Node walker = otherPoly.firstNode;
+        Node currentNode = otherPoly.firstNode;
 
-        while (walker != null) {
-            insert(walker.getCoefficient(), walker.getExponent());
-            walker = walker.getNextNode();
+        while (currentNode != null) {
+            insert(currentNode.getCoefficient(), currentNode.getExponent());
+            currentNode = currentNode.getNextNode();
         }
     }
 
