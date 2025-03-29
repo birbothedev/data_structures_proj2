@@ -47,7 +47,6 @@ public class Main {
             System.out.println("New Polynomial added: \n");
             System.out.println(newPoly);
 
-
             // append new poly to end of file
             try (FileWriter fw = new FileWriter("src/polynomials.txt", true);
                  BufferedWriter bw = new BufferedWriter(fw)) {
@@ -55,7 +54,6 @@ public class Main {
             } catch (IOException e) {
                 System.err.println("Error appending to file: " + e.getMessage());
             }
-
         }
         scanner.close();
     }

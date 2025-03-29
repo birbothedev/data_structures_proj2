@@ -9,7 +9,7 @@ public class Polynomial {
         firstNode = null;
     }
 
-    // copy constructor (saw this in a youtube video)
+    // copy constructor
     Polynomial(Polynomial otherPoly){
         this.firstNode = null;
         Node currentNode = otherPoly.firstNode;
