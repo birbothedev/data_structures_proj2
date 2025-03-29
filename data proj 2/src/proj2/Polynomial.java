@@ -9,7 +9,7 @@ public class Polynomial {
         firstNode = null;
     }
 
-    // copy constructor
+    // copy constructor (saw this in a youtube video)
     Polynomial(Polynomial otherPoly){
         this.firstNode = null;
         Node currentNode = otherPoly.firstNode;
@@ -23,18 +23,31 @@ public class Polynomial {
     Polynomial(String poly){
         int coefficient;
         int exponent;
+        // if the file has empty lines skip them
+        if (poly.trim().isEmpty()) {
+            return;
+        }
         // split string into sections on + sign
         String[] parts = poly.split("\\+");
         for (String part : parts) {
             part = part.trim();
             //get integer and coefficient from each section of the string
-            if(part.startsWith("x^")){
+            if(part.contains("x^")){
                 String[] firstSection = part.split("x\\^");
+                // if the string has empty parts just skip it
+                if(firstSection[0].isEmpty() || firstSection[1].isEmpty()){
+                    continue;
+                }
                 coefficient = Integer.parseInt(firstSection[0]);
                 exponent = Integer.parseInt(firstSection[1]);
-            } else if(part.startsWith("x")){
-                String[] secondSection = part.split("x");
-                coefficient = Integer.parseInt(secondSection[0]);
+            } else if(part.contains("x")){
+                String coefficientString = part.replace("x", "").trim();
+                // if coefficient has no value then we can assume x is multiplied by 1
+                if (coefficientString.isEmpty()){
+                    coefficient = 1;
+                } else {
+                    coefficient = Integer.parseInt(coefficientString);
+                }
                 exponent = 1;
             } else {
                 coefficient = Integer.parseInt(part);
@@ -47,7 +60,6 @@ public class Polynomial {
     public void print(){
         System.out.println(this);
     }
-
     // insert
     public void insert(int coefficient, int exponent){
         //create new node

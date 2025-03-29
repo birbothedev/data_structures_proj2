@@ -12,12 +12,6 @@ public class Node {
         this.nextNode = null;
     }
 
-    public Node(int coefficient, int exponent, Node nextNode) {
-        this.coefficient = coefficient;
-        this.exponent = exponent;
-        this.nextNode = nextNode;
-    }
-
     public void setCoefficient(int coefficient) {
         this.coefficient = coefficient;
     }
@@ -47,9 +41,4 @@ public class Node {
         return this.nextNode == null;
     }
 
-//    public String toString(){
-//        if(this.exponent == 0){
-//            return
-//        }
-//    }
 }
